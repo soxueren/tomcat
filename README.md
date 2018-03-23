@@ -1,6 +1,3 @@
-## ËµÃ÷
-¹¦ÄÜ£º gitlab-ci³ÖĞø¼¯³ÉÉù³Ætomcat-8.5-alpineÑù°åÏîÄ¿
-Ö÷ÒªÊµÏÖ ×Ô¶¯»¯²¿Êğ
-
-- gitlab-ci.ymlÖĞsoxueren/docker-maven:latest Ìæ»»±¾µØ²Ö¿âÊ§°Ü£¬ÕÒ²»µ½±¾µØ¾µÏñ
-- gitlab-ci.ymlÖĞsoxueren/docker-maven:latest Ìæ»» 10.72.3.130:31493/maven:3.5.2-alpineÕÒ²»µ½ÄÚÖÃ docker ÃüÁî
+## è¯´æ˜
+åŠŸèƒ½ï¼š gitlab-ciæŒç»­é›†æˆç”Ÿæˆtomcat-8.5-alpineæ ·æ¿é¡¹ç›®
+ä¸»è¦å®ç° è‡ªåŠ¨åŒ–éƒ¨ç½²
