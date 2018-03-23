@@ -11,7 +11,7 @@ stages:
   - build
 
 before_script:
-  - docker login -u soxueren -p 1995jxw
+  - docker info
 
 build-master:
   stage: build
