@@ -1,0 +1,21 @@
+image: soxueren/docker-maven:latest
+
+variables:
+  REGISTRY_URL: "soxueren"
+  IMAGE_TAG: "8.5-jre8-beta-alpine"
+
+services:
+  - docker:dind
+
+stages:
+  - build
+
+before_script:
+  - docker login -u soxueren -p 1995jxw
+
+build-master:
+  stage: build
+  script:
+    - docker build --pull -t $REGISTRY_URL/tomcat:$IMAGE_TAG .
+    - docker push $REGISTRY_URL/tomcat:$IMAGE_TAG
+
