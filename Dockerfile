@@ -3,10 +3,7 @@ FROM tomcat:8.5-jre8-alpine
 
 RUN apk add --no-cache \
                 unzip \
-                vim \
-                mkfontscale \
-                mkfontdir \
-                fc-cache
+                vim  
 
 RUN mkdir /usr/local/tomcat/dump/
 RUN touch /usr/local/tomcat/dump/oom.hprof
