@@ -4,10 +4,11 @@ FROM soxueren/tomcat:8.5-jre8-alpine
 RUN apk add --no-cache \
         vim  \
         unzip \
+        dpkg \
         mkfontscale \
         mkfontdir \
         fontconfig  
 
 EXPOSE 8080
 
-CMD ["/usr/local/tomcat/bin/catalina.sh","run"]
+CMD ["catalina.sh","run"]
