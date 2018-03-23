@@ -1,9 +1,12 @@
 # This file is a template, and might need editing before it works on your project.
 FROM tomcat:8.5-jre8-alpine
 
-RUN apk add --no-cache \
-                unzip \
-                vim  
+RUN apk add --no-cache \               
+                vim  \
+                mkfontscale \
+                mkfontdir
+         
+                
 
 RUN mkdir /usr/local/tomcat/dump/
 RUN touch /usr/local/tomcat/dump/oom.hprof
