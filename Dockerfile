@@ -5,7 +5,7 @@ FROM tomcat:8.5-jre8-slim
 RUN  apt-get update && apt-get install -y --no-install-recommends \      
          gdal-bin \	
          libgdal-dev \
-	       netcdf-bin \
+	 netcdf-bin \
          libnetcdf-dev \         
          python-gdal  \	 
 	       && rm -rf /var/lib/apt/lists/*
