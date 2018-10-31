@@ -5,9 +5,7 @@ FROM tomcat:8.5-jre8-alpine
 RUN apk add --no-cache \
                 unzip \
                 vim  \
-                mkfontscale \
-               mkfontdir \
-               fontconfig  
+                wget
 
 RUN mkdir /usr/local/tomcat/dump/
 RUN touch /usr/local/tomcat/dump/oom.hprof
