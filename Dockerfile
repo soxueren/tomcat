@@ -2,7 +2,11 @@
 FROM tomcat:8.5-jre8-slim
 
 # 安装gdal相关库
-RUN  apt-get update && apt-get install -y --no-install-recommends \  
+RUN  apt-get update && apt-get install -y --no-install-recommends \ 
+         vim  \
+         mkfontscale \
+         mkfontdir \
+         fontconfig  
          unzip \
 	 wget  \
          gdal-bin \	
