@@ -17,11 +17,13 @@ RUN wget http://ftp.debian.org/debian/pool/main/f/fontconfig/fontconfig_2.11.0-6
     dpkg -i ~/fontconfig_2.11.0-6.3+deb8u1_amd64.deb && \
     rm ~/fontconfig_2.11.0-6.3+deb8u1_amd64.deb
 
+# add fonts
+#ADD fontxp.zip /usr/share/fonts/
+
 # cache fonts
-#RUN unzip -o ~/fontxp.zip -d /usr/share/fonts/ && \
-# dpkg-reconfigure fontconfig-config && \
-# dpkg-reconfigure fontconfig && \
-# fc-cache -fv
+RUN dpkg-reconfigure fontconfig-config && \
+        dpkg-reconfigure fontconfig && \
+        fc-cache -fv
     
 RUN mkdir /usr/local/tomcat/dump/
 RUN touch /usr/local/tomcat/dump/oom.hprof
