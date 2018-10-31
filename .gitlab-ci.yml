@@ -2,7 +2,7 @@ image: soxueren/docker-maven:latest
 
 variables:
   REGISTRY_URL: "soxueren"
-  IMAGE_TAG: "8.5-jre8-beta-alpine"
+  IMAGE_TAG: "8.5-jre8-alpine"
 
 services:
   - docker:dind
