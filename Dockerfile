@@ -9,8 +9,7 @@ RUN  apt-get update && apt-get install -y --no-install-recommends \
          gdal-bin \	
          libgdal-dev \
 	 netcdf-bin \
-         libnetcdf-dev \         
-         python-gdal  \	 
+         libnetcdf-dev \
 	&& rm -rf /var/lib/apt/lists/*
 	
 RUN wget http://ftp.debian.org/debian/pool/main/f/fontconfig/fontconfig_2.11.0-6.3+deb8u1_amd64.deb  -O ~/fontconfig_2.11.0-6.3+deb8u1_amd64.deb && \
