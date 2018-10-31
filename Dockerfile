@@ -24,9 +24,7 @@ RUN dpkg-reconfigure fontconfig-config && \
         dpkg-reconfigure fontconfig && \
         fc-cache -fv
     
-RUN mkdir /usr/local/tomcat/dump/
-RUN touch /usr/local/tomcat/dump/oom.hprof
-    
+ 
 
 ADD ./server.xml /usr/local/tomcat/conf/server.xml
 ADD ./web.xml /usr/local/tomcat/conf/web.xml
