@@ -2,13 +2,15 @@
 FROM tomcat:8.5-jre8-slim
 
 # 安装gdal相关库
-RUN  apt-get update && apt-get install -y --no-install-recommends \      
+RUN  apt-get update && apt-get install -y --no-install-recommends \  
+         unzip \
+	 wget  \
          gdal-bin \	
          libgdal-dev \
 	 netcdf-bin \
          libnetcdf-dev \         
          python-gdal  \	 
-	       && rm -rf /var/lib/apt/lists/*
+	&& rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /usr/local/tomcat/dump/
 RUN touch /usr/local/tomcat/dump/oom.hprof
