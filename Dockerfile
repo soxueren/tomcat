@@ -6,7 +6,7 @@ RUN  apt-get update && apt-get install -y --no-install-recommends \
          vim  \
          mkfontscale \
          mkfontdir \
-         fontconfig  
+         fontconfig  \
          unzip \
 	 wget  \
          gdal-bin \	
