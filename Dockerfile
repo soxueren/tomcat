@@ -21,4 +21,4 @@ RUN echo 'Asia/Shanghai' >/etc/timezone
 
 EXPOSE 8080
 
-CMD [" /usr/local/tomcat/bin/catalina.sh","run"]
+CMD ["/usr/local/tomcat/bin/catalina.sh","run"]
