@@ -11,14 +11,6 @@ RUN apk add --no-cache \
 
 RUN mkdir /usr/local/tomcat/dump/
 RUN touch /usr/local/tomcat/dump/oom.hprof
-
-#RUN rm -rf /usr/local/tomcat/webapps/host-manager/META-INF/context.xml \
-#   && rm -f /usr/local/tomcat/webapps/manager/META-INF/context.xml \
-#    && rm -f /usr/local/tomcat/conf/tomcat-users.xml \
-#    && rm -f /usr/local/tomcat/conf/server.xml \
-#   && rm -f /usr/local/tomcat/conf/web.xml \
-#    && rm -f /usr/local/tomcat/bin/catalina.sh 
-
     
 ADD ./catalina.sh /usr/local/tomcat/bin/catalina.sh
 ADD ./server.xml /usr/local/tomcat/conf/server.xml
