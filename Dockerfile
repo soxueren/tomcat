@@ -1,21 +1,28 @@
 # This file is a template, and might need editing before it works on your project.
-FROM tomcat:8.5-jre8-alpine
+FROM tomcat:8.5-jre8-slim
 
 # 安装gdal相关库
-RUN  apk add --no-cache \ 
+RUN  apt-get update && apt-get install -y --no-install-recommends \  
          vim  \        
          unzip \
-	 wget  \
-	 mkfontscale \
-         mkfontdir \
-         fontconfig  \
+	 wget  \	
          gdal-bin \	
          libgdal-dev \
 	 netcdf-bin \
          libnetcdf-dev \         
          python-gdal  \	 
 	&& rm -rf /var/lib/apt/lists/*
+	
+RUN wget http://ftp.debian.org/debian/pool/main/f/fontconfig/fontconfig_2.11.0-6.3+deb8u1_amd64.deb  -O ~/fontconfig_2.11.0-6.3+deb8u1_amd64.deb && \
+    dpkg -i ~/fontconfig_2.11.0-6.3+deb8u1_amd64.deb && \
+    rm ~/fontconfig_2.11.0-6.3+deb8u1_amd64.deb
 
+# cache fonts
+#RUN unzip -o ~/fontxp.zip -d /usr/share/fonts/ && \
+# dpkg-reconfigure fontconfig-config && \
+# dpkg-reconfigure fontconfig && \
+# fc-cache -fv
+    
 RUN mkdir /usr/local/tomcat/dump/
 RUN touch /usr/local/tomcat/dump/oom.hprof
     
