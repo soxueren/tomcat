@@ -1,8 +1,8 @@
 # This file is a template, and might need editing before it works on your project.
-FROM tomcat:8.5-jre8-slim
+FROM tomcat:8.5-jre8-alpine
 
 # 安装gdal相关库
-RUN  apt-get update && apt-get install -y --no-install-recommends \ 
+RUN  apk add --no-cache \ 
          vim  \        
          unzip \
 	 wget  \
