@@ -27,7 +27,7 @@ RUN dpkg-reconfigure fontconfig-config && \
 RUN mkdir /usr/local/tomcat/dump/
 RUN touch /usr/local/tomcat/dump/oom.hprof
     
-ADD ./catalina.sh /usr/local/tomcat/bin/catalina.sh
+
 ADD ./server.xml /usr/local/tomcat/conf/server.xml
 ADD ./web.xml /usr/local/tomcat/conf/web.xml
 
@@ -38,7 +38,7 @@ ADD ./manager-web.xml /usr/local/tomcat/webapps/manager/WEB-INF/web.xml
 
 COPY ./Shanghai /etc/localtime
 RUN echo 'Asia/Shanghai' >/etc/timezone
-RUN chmod +x /usr/local/tomcat/bin/catalina.sh
+
 
 EXPOSE 8080
 
