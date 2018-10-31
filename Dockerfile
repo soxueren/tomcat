@@ -3,17 +3,9 @@ FROM tomcat:8.5-jre8-slim
 
 # 安装gdal相关库
 RUN  apt-get update && apt-get install -y --no-install-recommends \ 
-         vim  \
-         mkfontscale \
-         mkfontdir \
-         fontconfig  
+         vim  \       
          unzip \
-	 wget  \
-         gdal-bin \	
-         libgdal-dev \
-	 netcdf-bin \
-         libnetcdf-dev \         
-         python-gdal  \	 
+	 wget  \       
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /usr/local/tomcat/dump/
