@@ -1,7 +1,7 @@
 # This file is a template, and might need editing before it works on your project.
 FROM tomcat:8.5-jre8-slim
 
-# 安装gdal相关库 #忽略libnetcdf-dev libnetcdf-dev 
+# 安装gdal相关库
 RUN  apt-get update && apt-get install -y --no-install-recommends \      
          gdal-bin \	
          libgdal-dev \
