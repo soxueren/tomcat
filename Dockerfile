@@ -7,9 +7,7 @@ RUN  apt-get update && apt-get install -y --no-install-recommends \
          unzip \
 	 wget  \       
 	&& rm -rf /var/lib/apt/lists/*
-
-
-    
+   
 
 ADD ./server.xml /usr/local/tomcat/conf/server.xml
 ADD ./web.xml /usr/local/tomcat/conf/web.xml
@@ -25,4 +23,4 @@ RUN echo 'Asia/Shanghai' >/etc/timezone
 
 EXPOSE 8080
 
-CMD ["catalina.sh","run"]
+CMD [" /usr/local/tomcat/bin/catalina.sh","run"]
