@@ -1,13 +1,14 @@
 # This file is a template, and might need editing before it works on your project.
-# This file is a template, and might need editing before it works on your project.
-FROM tomcat:8.5-jre8-alpine
+FROM tomcat:8.5-jre8-slim
 
-RUN apk add --no-cache \
-                unzip \
-                vim  \
-                mkfontscale \
-               mkfontdir \
-               fontconfig  
+# 安装gdal相关库 #忽略libnetcdf-dev libnetcdf-dev 
+RUN  apt-get update && apt-get install -y --no-install-recommends \      
+         gdal-bin \	
+         libgdal-dev \
+	       netcdf-bin \
+         libnetcdf-dev \         
+         python-gdal  \	 
+	       && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /usr/local/tomcat/dump/
 RUN touch /usr/local/tomcat/dump/oom.hprof
