@@ -2,10 +2,13 @@
 # This file is a template, and might need editing before it works on your project.
 FROM tomcat:8.5-jre8-alpine
 
-RUN apk add --no-cache \
+RUN apk add --no-cache \               
                 unzip \
                 vim  \
-                wget
+                wget \
+               ttf-dejavu \
+               fontconfig \
+              && rm -rf /var/cache/apk/*
 
 ADD ./server.xml /usr/local/tomcat/conf/server.xml
 ADD ./web.xml /usr/local/tomcat/conf/web.xml
