@@ -1,13 +1,13 @@
 FROM soxueren/busybox-gdal:jdk-py-runtime
 
-ENV TOMCAT_VERSION=8.5-jre8-alpine
+
 ENV CATALINA_HOME=/usr/local/tomcat
 ENV TOMCAT_NATIVE_LIBDIR=/usr/local/tomcat/native-jni-lib
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/tomcat/native-jni-lib
 ENV PATH=$PATH:$CATALINA_HOME/bin
 
 RUN mkdir -p /usr/local/tomcat
-COPY --from=tomcat:$TOMCAT_VERSION  /usr/local/tomcat/ /usr/local/tomcat/
+COPY --from=tomcat:8.5-jre8-alpine /usr/local/tomcat/ /usr/local/tomcat/
 
 RUN apk add --no-cache \               
                 unzip \
@@ -35,4 +35,4 @@ WORKDIR /usr/local/tomcat
 
 EXPOSE 8080
 
-CMD ["/usr/local/tomcat/bin/catalina.sh","run"]
+CMD ["/bin/sh","/usr/local/tomcat/bin/catalina.sh","run"]
