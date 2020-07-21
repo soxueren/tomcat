@@ -1,26 +1,28 @@
 FROM soxueren/busybox-gdal:jdk-py-runtime
 
-
 ENV CATALINA_HOME=/usr/local/tomcat
 ENV TOMCAT_NATIVE_LIBDIR=/usr/local/tomcat/native-jni-lib
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/tomcat/native-jni-lib
 ENV PATH=$PATH:$CATALINA_HOME/bin
 
 RUN mkdir -p /usr/local/tomcat
-COPY --from=tomcat:8.5-jre8-alpine /usr/local/tomcat/ /usr/local/tomcat/
-
-RUN apk add --no-cache \               
+COPY --from=tomcat:8.5-jre8-alpine  /usr/local/tomcat/ /usr/local/tomcat/
+COPY --from=castive/tomcat-native:latest /usr/lib/* /usr/lib/
+COPY --from=castive/tomcat-native:latest /usr/local/apr/lib/* /usr/local/tomcat/native-jni-lib/
+RUN apk add --no-cache \
                 unzip \
                 vim  \
                 wget \
                 ttf-dejavu \
                 fontconfig \
+                ca-certificates \
+                nss \
                 && rm -rf /var/cache/apk/*
 
 ADD ./server.xml /usr/local/tomcat/conf/server.xml
 ADD ./web.xml /usr/local/tomcat/conf/web.xml
 ADD ./tomcat-users.xml /usr/local/tomcat/conf/tomcat-users.xml
-ADD ./host-manager-context.xml /usr/local/tomcat/webapps/host-manager/META-INF/context.xml 
+ADD ./host-manager-context.xml /usr/local/tomcat/webapps/host-manager/META-INF/context.xml
 ADD ./manager-context.xml /usr/local/tomcat/webapps/manager/META-INF/context.xml
 ADD ./manager-web.xml /usr/local/tomcat/webapps/manager/WEB-INF/web.xml
 ADD ./setenv.sh /usr/local/tomcat/bin/setenv.sh
