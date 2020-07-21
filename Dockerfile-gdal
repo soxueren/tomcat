@@ -2,7 +2,7 @@ FROM soxueren/busybox-gdal:jdk-py-runtime
 
 ENV CATALINA_HOME=/usr/local/tomcat
 ENV TOMCAT_NATIVE_LIBDIR=/usr/local/tomcat/native-jni-lib
-ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/tomcat/native-jni-lib
+ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib:/usr/local/tomcat/native-jni-lib
 ENV PATH=$PATH:$CATALINA_HOME/bin
 
 RUN mkdir -p /usr/local/tomcat
