@@ -7,16 +7,14 @@ ENV PATH=$PATH:$CATALINA_HOME/bin
 
 RUN mkdir -p /usr/local/tomcat
 COPY --from=tomcat:8.5-jre8-alpine  /usr/local/tomcat/ /usr/local/tomcat/
-COPY --from=castive/tomcat-native:latest /usr/lib/* /usr/lib/
-COPY --from=castive/tomcat-native:latest /usr/local/apr/lib/* /usr/local/tomcat/native-jni-lib/
+COPY --from=tomcat:8.5-jre8-alpine /usr/lib/* /usr/lib/
 RUN apk add --no-cache \
                 unzip \
                 vim  \
                 wget \
                 ttf-dejavu \
                 fontconfig \
-                ca-certificates \
-                nss \
+                ca-certificates \           
                 && rm -rf /var/cache/apk/*
 
 ADD ./server.xml /usr/local/tomcat/conf/server.xml
