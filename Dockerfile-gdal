@@ -1,4 +1,4 @@
-FROM soxueren/busybox-gdal:jdk-py-runtime
+FROM soxueren/busybox-gdal:3.1.2
 
 ENV CATALINA_HOME=/usr/local/tomcat
 ENV TOMCAT_NATIVE_LIBDIR=/usr/local/tomcat/native-jni-lib
