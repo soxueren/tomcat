@@ -1,12 +1,12 @@
 FROM tomcat:8.5-jre8
 
-RUN apt-get install -y  \               
-                unzip \
-                vim  \
+RUN apt-get update -y \
+        && apt-get install -y  \               
+                unzip \               
                 wget \
                fontconfig \
                xfonts-utils \
-               && apt-get clean
+        && apt-get clean
               
 ADD ./server.xml /usr/local/tomcat/conf/server.xml
 ADD ./web.xml /usr/local/tomcat/conf/web.xml
